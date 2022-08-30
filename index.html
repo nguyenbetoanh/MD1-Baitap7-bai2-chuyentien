@@ -26,40 +26,40 @@
         <td><input type="text" id="nhapdauvao"></td>
         <td>
             <form>
-                <select name="" id="nuoc">
+                <select name="" id="nuoc"onchange="nutbam()">
                     <option value="vnd">Viet Nam</option>
                     <option value="usd">Hoa Ki</option>
                 </select>
             </form>
         </td>
         <td>
-            <select name="" id="tien">
-                <option value="vnd">Viet Nam</option>
-                <option value="usd">Hoa Ki</option>
+            <select name="" id="tien"onchange="nutbam()">
+                <option value="vnd">VND</option>
+                <option value="usd">USD</option>
             </select>
         </td>
         <td ><button onclick="nutbam()" class="dd" >convert</button></td>
     </tr>
 </table>
+<h1 id="kq"></h1>
 <script>
     function nutbam(){
         let giatrivao =(document.getElementById('nhapdauvao').value);
         let nuoc =(document.getElementById('nuoc').value);
         let tien =(document.getElementById('tien').value);
+        let ketQua
         if(nuoc == tien){
-            document.write('Số tiền được giữ nguyên là :'+giatrivao);
+           document.getElementById('kq').innerHTML = '<h1 style="color: red">Please choose another money</h1>'
+            return;
         }
         if (nuoc == "vnd" && tien =="usd"){
-            document.write('Số tiền chuyển từ tiền Việt sang tiền Mỹ là :'+ giatrivao/23000+ ' '+'USD');
+          ketQua = giatrivao/23000;
         }if (nuoc == "usd" && tien =="vnd"){
-            document.write('Số tiền chuyển từ tiền Mỹ sang tiền Việt là :'+ giatrivao *23000 +' '+'VND');
+            ketQua = giatrivao*23000;
+
         }
+        document.getElementById('kq').innerHTML = ketQua + tien;
     }
-
-
-
-
-
 </script>
 </body>
 </html>
