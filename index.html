@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .dd{
+            background-color: blueviolet;
+            color: white;
+        }
+        table{
+            margin-left: 550px;
+            margin-top: 250px;
+        }
+    </style>
+</head>
+<body>
+<table  cellpadding="0"cellspacing="5">
+    <tr>
+        <th >Amount</th>
+        <th>Form Currency</th>
+        <th>To Cyrrency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="nhapdauvao"></td>
+        <td>
+            <form>
+                <select name="" id="nuoc">
+                    <option value="vnd">Viet Nam</option>
+                    <option value="usd">Hoa Ki</option>
+                </select>
+            </form>
+        </td>
+        <td>
+            <select name="" id="tien">
+                <option value="vnd">Viet Nam</option>
+                <option value="usd">Hoa Ki</option>
+            </select>
+        </td>
+        <td ><button onclick="nutbam()" class="dd" >convert</button></td>
+    </tr>
+</table>
+<script>
+    function nutbam(){
+        let giatrivao =(document.getElementById('nhapdauvao').value);
+        let nuoc =(document.getElementById('nuoc').value);
+        let tien =(document.getElementById('tien').value);
+        if(nuoc == tien){
+            document.write('Số tiền được giữ nguyên là :'+giatrivao);
+        }
+        if (nuoc == "vnd" && tien =="usd"){
+            document.write('Số tiền chuyển từ tiền Việt sang tiền Mỹ là :'+ giatrivao/23000+ ' '+'USD');
+        }if (nuoc == "usd" && tien =="vnd"){
+            document.write('Số tiền chuyển từ tiền Mỹ sang tiền Việt là :'+ giatrivao *23000 +' '+'VND');
+        }
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
